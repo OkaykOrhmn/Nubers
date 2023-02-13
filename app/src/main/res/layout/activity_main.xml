@@ -36,6 +36,7 @@
                 android:layout_alignParentLeft="true"
                 app:tint="@color/white"
                 android:layout_margin="@dimen/_12cdp"
+
                 />
 
             <ImageView
