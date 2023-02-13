@@ -44,7 +44,6 @@
                 android:src="@drawable/simcard_one"
                 android:layout_centerInParent="true"
                 app:tint="@color/primaryColor"
-                android:layout_margin="@dimen/_12cdp"
 
                 />
 
@@ -66,13 +65,18 @@
     </LinearLayout>
 
 
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_200cdp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:menu="@menu/activity_main_drawer"
+        app:headerLayout="@layout/nav_header_main"
+        android:background="@drawable/drawer_back"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
 
         />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -10,4 +10,10 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="menu_about_us">درباره ما</string>
+    <string name="menu_other_apps">برنامه های دیگر</string>
+    <string name="menu_support">پشتیبانی</string>
+    <string name="menu_hint">راهنما و آموزش ها</string>
+    <string name="menu_rules">مقررات</string>
 </resources>
