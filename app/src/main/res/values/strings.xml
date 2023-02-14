@@ -16,4 +16,8 @@
     <string name="menu_support">پشتیبانی</string>
     <string name="menu_hint">راهنما و آموزش ها</string>
     <string name="menu_rules">مقررات</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="exite_alart">برای خروج دوباره تلاش کنید.</string>
+    <string name="wellcome">خوش آمدید</string>
 </resources>

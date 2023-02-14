@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGround"
+    tools:context=".activitys.ProfilesActivity">
+
+    <RelativeLayout
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backGround"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingVertical="@dimen/_12cdp"
+        app:layout_constraintTop_toBottomOf="@id/nav_bar"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/per_2"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/per_8"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+
+        <TextView
+            android:id="@+id/name_profile"
+            style="@style/fontForNormalWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name \nlastName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/per_2"
+            app:layout_constraintBottom_toTopOf="@id/wallet_icon"
+            android:layout_marginBottom="@dimen/_8cdp"
+
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edite_profile"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/per_8"
+            app:tint="@color/white" />
+
+
+        <TextView
+            android:id="@+id/number_profile"
+            style="@style/fontForNormalWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09131234567"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="@id/per_8"
+            app:layout_constraintBottom_toBottomOf="@id/name_profile"
+
+            />
+
+        <ImageView
+            android:id="@+id/wallet_icon"
+            android:layout_width="@dimen/_64cdp"
+            android:layout_height="@dimen/_64cdp"
+            android:src="@drawable/wallet"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/per_2"
+            app:layout_constraintTop_toBottomOf="@id/name_profile"
+            android:layout_marginTop="@dimen/_8cdp"
+
+            />
+
+        <TextView
+            android:id="@+id/wallet_total"
+            style="@style/fontForNormalWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10000 تومان"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="@id/per_8"
+            app:layout_constraintTop_toTopOf="@id/wallet_icon"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/log_out"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/_24cdp"
+        >
+
+        <ImageView
+            android:id="@+id/minus_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/minus"
+            app:tint="@color/primaryColor"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+            />
+
+        <TextView
+            android:id="@+id/price_to_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10,000 تومان"
+            style="@style/fontForHeaderPrimary"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+
+            />
+
+        <ImageView
+            android:id="@+id/plus_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus"
+            app:tint="@color/primaryColor"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/log_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_profile"
+        android:layout_margin="@dimen/_32cdp"
+        android:text="خروج از اکانت"
+        style="@style/fontForNormalWhite"
+        android:backgroundTint="@color/secondryColor"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/payment_button"
+        android:layout_margin="@dimen/_12cdp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_one"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_8cdp"
+                android:backgroundTint="@color/backGround"
+                app:strokeColor="@color/primaryColor"
+                app:strokeWidth="@dimen/_1cdp"
+                app:cornerRadius="@dimen/_12cdp"
+                android:text="10,000 تومان"
+                style="@style/fontForNormalPrimary"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_two"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_8cdp"
+                android:backgroundTint="@color/backGround"
+                app:strokeColor="@color/primaryColor"
+                app:strokeWidth="@dimen/_1cdp"
+                app:cornerRadius="@dimen/_12cdp"
+                android:text="30,000 تومان"
+                style="@style/fontForNormalPrimary"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_three"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_8cdp"
+                android:backgroundTint="@color/backGround"
+                app:strokeColor="@color/primaryColor"
+                app:strokeWidth="@dimen/_1cdp"
+                app:cornerRadius="@dimen/_12cdp"
+                android:text="50,000 تومان"
+                style="@style/fontForNormalPrimary"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_four"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_8cdp"
+                android:backgroundTint="@color/backGround"
+                app:strokeColor="@color/primaryColor"
+                app:strokeWidth="@dimen/_1cdp"
+                app:cornerRadius="@dimen/_12cdp"
+                android:text="80,000 تومان"
+                style="@style/fontForNormalPrimary"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_five"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_8cdp"
+                android:backgroundTint="@color/backGround"
+                app:strokeColor="@color/primaryColor"
+                app:strokeWidth="@dimen/_1cdp"
+                app:cornerRadius="@dimen/_12cdp"
+                android:text="100,000 تومان"
+                style="@style/fontForNormalPrimary"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_six"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_8cdp"
+                android:backgroundTint="@color/backGround"
+                app:strokeColor="@color/primaryColor"
+                app:strokeWidth="@dimen/_1cdp"
+                app:cornerRadius="@dimen/_12cdp"
+                android:text="120,000 تومان"
+                style="@style/fontForNormalPrimary"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/payment_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_32cdp"
+        android:text="پرداخت"
+        style="@style/fontForNormalWhite"
+        android:backgroundTint="@color/primaryColor"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

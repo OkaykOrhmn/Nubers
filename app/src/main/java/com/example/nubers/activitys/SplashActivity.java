@@ -1,15 +1,14 @@
-package com.example.nubers;
+package com.example.nubers.activitys;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
-import com.example.nubers.databinding.ActivityMainBinding;
+import com.example.nubers.R;
 import com.example.nubers.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {
@@ -22,22 +21,20 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        // result varible define as a public
 
+        new CountDownTimer(4000, 200) {
 
-        new CountDownTimer(6000, 450) {
-
+            @SuppressLint("SetTextI18n")
             public void onTick(long millisUntilFinished) {
                 binding.textPer.setText(per+ "%");
 
                 if(millisUntilFinished/1000 <= 1){
-                    binding.textPer.setText("خوش آمدید");
+                    binding.textPer.setText(R.string.wellcome);
 
 
                 }else{
                     per+=10;
                 }
-                // logic to set the EditText could go here
             }
 
             public void onFinish() {
