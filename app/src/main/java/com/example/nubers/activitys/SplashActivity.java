@@ -22,13 +22,13 @@ public class SplashActivity extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        new CountDownTimer(4000, 200) {
+        new CountDownTimer(4000, 250) {
 
             @SuppressLint("SetTextI18n")
             public void onTick(long millisUntilFinished) {
                 binding.textPer.setText(per+ "%");
 
-                if(millisUntilFinished/1000 <= 1){
+                if(per >= 100){
                     binding.textPer.setText(R.string.wellcome);
 
 

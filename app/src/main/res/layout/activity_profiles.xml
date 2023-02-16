@@ -21,18 +21,20 @@
             android:background="@color/backGround"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintTop_toBottomOf="@id/nav_bar"
             app:layout_constraintBottom_toBottomOf="@id/layout_profile"
             app:layout_constraintLeft_toLeftOf="@id/per_1"
             app:layout_constraintRight_toRightOf="@id/per_9"
-            android:backgroundTint="#00006466"
             android:padding="@dimen/_12cdp"
-            app:cardCornerRadius="@dimen/_12cdp"
+            android:background="@drawable/shadows_back"
+            android:elevation="@dimen/_24cdp"
+
 
             />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/per_1"
@@ -56,6 +58,8 @@
             android:layout_marginTop="8dp"
             android:paddingVertical="@dimen/_12cdp"
             app:layout_constraintTop_toBottomOf="@id/nav_bar"
+            android:elevation="@dimen/_100cdp"
+
             >
 
             <androidx.constraintlayout.widget.Guideline
@@ -126,7 +130,10 @@
                 />
 
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <LinearLayout
             android:id="@+id/price"
@@ -205,7 +212,9 @@
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/price"
             app:layout_constraintBottom_toTopOf="@id/payment_button"
-            android:layout_margin="@dimen/_12cdp"
+            android:layout_marginHorizontal="@dimen/_12cdp"
+            android:layout_marginTop="@dimen/_32cdp"
+            android:layout_marginBottom="@dimen/_12cdp"
             >
             <LinearLayout
                 android:layout_width="match_parent"
