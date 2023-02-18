@@ -2,13 +2,12 @@ package com.example.nubers.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.nubers.R;
-import com.example.nubers.Tools;
-import com.example.nubers.databinding.ActivityMainBinding;
+import com.example.nubers.utils.Tools;
 import com.example.nubers.databinding.ActivityProfilesBinding;
 import com.google.android.material.button.MaterialButton;
 
@@ -24,6 +23,12 @@ public class ProfilesActivity extends AppCompatActivity implements View.OnClickL
 
         binding = ActivityProfilesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String number = sh.getString("number", "");
+
+        binding.numberProfile.setText(number);
 
         binding.addOne.setOnClickListener(this::onClick);
         binding.addTwo.setOnClickListener(this::onClick);

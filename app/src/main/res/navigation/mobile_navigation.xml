@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/enterNumberFragment">
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.nubers.fragments.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/supportFragment"
-        android:name="com.example.nubers.fragments.SupportFragment"
-        android:label="fragment_support"
-        tools:layout="@layout/fragment_support" >
+        android:id="@+id/enterNumberFragment"
+        android:name="com.example.nubers.fragments.EnterNumberFragment"
+        android:label="fragment_enter_number"
+        tools:layout="@layout/fragment_enter_number" >
     </fragment>
     <action
-        android:id="@+id/action_to_profileFragment"
-        app:destination="@id/profileFragment" />
+        android:id="@+id/action_to_enterCodeFragment"
+        app:destination="@id/enterCodeFragment" />
+    <fragment
+        android:id="@+id/enterCodeFragment"
+        android:name="com.example.nubers.fragments.EnterCodeFragment"
+        android:label="fragment_enter_code"
+        tools:layout="@layout/fragment_enter_code" />
 </navigation>

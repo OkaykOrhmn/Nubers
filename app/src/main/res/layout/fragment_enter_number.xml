@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backGround"
+    tools:context=".fragments.EnterNumberFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/per_2_h"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/per_8_h"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/per_2_v"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/per_8_v"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8"
+        />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/per_5_h"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/per_2_h"
+        app:layout_constraintRight_toRightOf="@id/per_8_v"
+        app:layout_constraintLeft_toLeftOf="@id/per_2_v"
+        android:padding="@dimen/_12cdp"
+        android:background="@drawable/shadows_back"
+        android:elevation="@dimen/_24cdp"
+        app:layout_constraintBottom_toTopOf="@id/per_5_h"
+
+
+        >
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:gravity="start"
+            android:hint="موبایل"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/primaryColor"
+            android:textColorHint="@color/white"
+
+            />
+
+    </RelativeLayout>
+
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next_butt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/per_5_h"
+        app:layout_constraintLeft_toLeftOf="@id/per_2_v"
+        app:layout_constraintRight_toRightOf="@id/per_8_v"
+        android:paddingVertical="@dimen/_8cdp"
+        android:text="ارسال کد"
+        android:backgroundTint="@color/primaryColor"
+        style="@style/fontForNormalWhite"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

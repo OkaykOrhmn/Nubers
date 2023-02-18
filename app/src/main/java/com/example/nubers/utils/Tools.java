@@ -1,6 +1,8 @@
-package com.example.nubers;
+package com.example.nubers.utils;
 
+import android.app.Activity;
 import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -29,6 +31,15 @@ public class Tools {
         String result = formattedNumber+" تومان";
 
         return result ;
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        if (inputMethodManager.isAcceptingText()) {
+            inputMethodManager.hideSoftInputFromWindow(activity.getWindow().getDecorView().getRootView().getWindowToken(), 0);
+        }
     }
 
 
