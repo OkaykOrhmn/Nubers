@@ -2,6 +2,7 @@ package com.example.nubers.utils;
 
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import java.text.DecimalFormat;
@@ -41,6 +42,16 @@ public class Tools {
             inputMethodManager.hideSoftInputFromWindow(activity.getWindow().getDecorView().getRootView().getWindowToken(), 0);
         }
     }
+
+    //ProgressBar
+    public static void visibleProgressBar(View view) {
+        view.setVisibility(View.VISIBLE);
+    }
+
+    public static void invisibleProgressBar(View view) {
+        view.setVisibility(View.INVISIBLE);
+    }
+    //ProgressBar
 
 
 }

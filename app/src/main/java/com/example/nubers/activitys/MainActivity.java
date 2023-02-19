@@ -1,31 +1,47 @@
 package com.example.nubers.activitys;
 
+import static android.view.View.VISIBLE;
+
+import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
-import android.view.Menu;
+import android.widget.Adapter;
+import android.widget.GridLayout;
 import android.widget.Toast;
 
 import com.example.nubers.R;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
+import com.example.nubers.adapter.CountrysAdapter;
+import com.example.nubers.api.ApiCall;
+import com.example.nubers.api.ApiCallInterface;
+import com.example.nubers.models.CountryModel;
+import com.example.nubers.utils.ApiEndPoint;
+import com.example.nubers.utils.Connectivity;
 
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nubers.databinding.ActivityMainBinding;
+import com.example.nubers.utils.Tools;
 
-public class MainActivity extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements ApiCallInterface {
+
+    private static final String TAG = "KIA----MainActivity----> ";
     private ActivityMainBinding binding;
     private boolean isExit = false;
+    private ArrayList<CountryModel> countryModelArrayList = new ArrayList<>();
+    private CountrysAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
 
         binding.menuOpen.setOnClickListener(view -> {
             binding.drawerLayout.open();
@@ -44,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
                     ActivityOptions.makeCustomAnimation(MainActivity.this, R.anim.slide_to_right, R.anim.slide_to_left);
             startActivity(intent, options.toBundle());
         });
+
+        if (Connectivity.isConnected(this)) {
+            new ApiCall(this, this).getAllCountry();
+        } else {
+
+        }
 
 
 
@@ -67,5 +91,60 @@ public class MainActivity extends AppCompatActivity {
         }else{
             super.onBackPressed();
         }
+    }
+
+    @SuppressLint("LongLogTag")
+    @Override
+    public void onResponse(JSONObject jsonObject) {
+        Tools.invisibleProgressBar(binding.spinKit);
+        try {
+            switch (jsonObject.getString("request")) {
+                case ApiEndPoint.GET_ALL_COUNTRY:
+
+
+                    if (jsonObject.getBoolean("isSuccess")) {
+                        Log.d(TAG, "onResponse: "+jsonObject.getJSONArray("result"));
+                        JSONArray res = jsonObject.getJSONArray("result");
+
+                        for (int i =0 ; i<res.length(); i++){
+                            JSONObject data = res.getJSONObject(i);
+
+                            CountryModel countryModel = new CountryModel();
+
+                            countryModel.setId(data.getString("id"));
+                            countryModel.setName(data.getString("name"));
+                            countryModel.setName_en(data.getString("name_en"));
+                            countryModel.setAreacode(data.getString("areacode"));
+                            countryModel.setEmoji(data.getString("emoji"));
+                            countryModel.setImage(data.getString("image"));
+                            countryModel.setActive(data.getString("active"));
+
+                            countryModelArrayList.add(countryModel);
+                        }
+
+                        recyclerCountry();
+
+
+                    } else {
+
+                    }
+                    break;
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
+
+    private void recyclerCountry() {
+
+        LinearLayoutManager verticalLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        binding.recyclerCountry.setLayoutManager(gridLayoutManager);
+
+        adapter = new CountrysAdapter(countryModelArrayList, this);
+        binding.recyclerCountry.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
     }
 }
