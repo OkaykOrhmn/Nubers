@@ -25,6 +25,7 @@
         app:layout_constraintTop_toBottomOf="@id/country_image"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_margin="@dimen/_12cdp"
+        style="@style/fontForNormalWhite"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

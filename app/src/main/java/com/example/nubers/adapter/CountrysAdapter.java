@@ -1,15 +1,21 @@
 package com.example.nubers.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nubers.R;
+import com.example.nubers.activitys.MainActivity;
+import com.example.nubers.activitys.PlatformsActivity;
 import com.example.nubers.databinding.CountryListBinding;
 import com.example.nubers.models.CountryModel;
 import com.example.nubers.utils.ApiEndPoint;
@@ -48,7 +54,12 @@ public class CountrysAdapter extends RecyclerView.Adapter<CountrysAdapter.ViewHo
 
         Picasso.get().load(ApiEndPoint.BASE_URL_IMAGES+item.getImage()).into(holder.binding.countryImage);
 
-
+        holder.binding.countryImage.setOnClickListener(view -> {
+            Intent intent = new Intent(context, PlatformsActivity.class);
+            ActivityOptions options =
+                    ActivityOptions.makeCustomAnimation(context, R.anim.slide_to_down, R.anim.slide_to_up);
+            context.startActivity(intent, options.toBundle());
+        });
 
 
 

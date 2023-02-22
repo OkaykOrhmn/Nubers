@@ -56,9 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:elevation="@dimen/_100cdp"
             android:paddingVertical="@dimen/_12cdp"
             app:layout_constraintTop_toBottomOf="@id/nav_bar"
-            android:elevation="@dimen/_100cdp"
 
             >
 
@@ -77,21 +77,19 @@
                 app:layout_constraintGuide_percent="0.8" />
 
 
-
             <TextView
                 android:id="@+id/name_profile"
                 style="@style/fontForNormalWhite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name \nlastName"
-
                 android:layout_marginBottom="@dimen/_8cdp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="@id/per_8"
+
+                android:text="Name \nlastName"
                 app:layout_constraintBottom_toBottomOf="@id/name_profile"
+                app:layout_constraintRight_toRightOf="@id/per_8"
+                app:layout_constraintTop_toTopOf="parent"
 
                 />
-
 
 
             <TextView
@@ -100,9 +98,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="09131234567"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/per_2"
                 app:layout_constraintBottom_toTopOf="@id/wallet_icon"
+                app:layout_constraintLeft_toLeftOf="@id/per_2"
+                app:layout_constraintTop_toTopOf="parent"
 
 
                 />
@@ -111,11 +109,11 @@
                 android:id="@+id/wallet_icon"
                 android:layout_width="@dimen/_64cdp"
                 android:layout_height="@dimen/_64cdp"
+                android:layout_marginTop="@dimen/_8cdp"
                 android:src="@drawable/wallet"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@id/per_2"
                 app:layout_constraintTop_toBottomOf="@id/name_profile"
-                android:layout_marginTop="@dimen/_8cdp"
 
                 />
 
@@ -130,7 +128,6 @@
                 app:layout_constraintTop_toTopOf="@id/wallet_icon"
 
                 />
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.example.nubers.models.CountryModel;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 public class Tools {
 
@@ -53,5 +56,22 @@ public class Tools {
     }
     //ProgressBar
 
+    public static ArrayList<CountryModel> searchResult(ArrayList<CountryModel> arrayList, String search){
+        Log.d(TAG, "search: "+search);
+        ArrayList<CountryModel> result = new ArrayList<>();
+
+        for(int i = 0; i<arrayList.size(); i++){
+            Log.d(TAG, "arrayList: "+arrayList.get(i).getName());
+
+            if( arrayList.get(i).getName().contains(search)){
+                result.add(arrayList.get(i));
+                Log.d(TAG, "arrayList: "+arrayList.get(i).getName());
+            }
+
+        }
+
+        return result;
+
+    }
 
 }

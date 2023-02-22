@@ -71,10 +71,61 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_country"
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/a"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:backgroundTint="@color/white"
+                        app:boxStrokeColor="@color/primaryColor"
+                        android:layout_marginVertical="@dimen/_18cdp"
+                        android:layout_marginHorizontal="@dimen/_18cdp"
+                        app:endIconCheckable="true"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/primaryColor"
+
+
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:hint="جستجو"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            style="@style/fontForNormalBlack"
+
+
+                            />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
 
 
         </LinearLayout>
@@ -103,5 +154,15 @@
         android:layout_centerInParent="true"
         app:SpinKit_Color="@color/primaryColor"
         app:SpinKit_Style="ThreeBounce" />
+
+    <include
+        android:id="@+id/connection_error"
+        layout="@layout/dialog_connection_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
 
 </RelativeLayout>

@@ -1,16 +1,15 @@
 package com.example.nubers.activitys;
 
-import static android.view.View.VISIBLE;
-
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.GridLayout;
 import android.widget.Toast;
 
 import com.example.nubers.R;
@@ -28,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nubers.databinding.ActivityMainBinding;
+import com.example.nubers.utils.MyActionDialog;
 import com.example.nubers.utils.Tools;
 
 import org.json.JSONArray;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
     private ActivityMainBinding binding;
     private boolean isExit = false;
     private ArrayList<CountryModel> countryModelArrayList = new ArrayList<>();
+    private ArrayList<CountryModel> resultArrayList ;
     private CountrysAdapter adapter;
 
     @Override
@@ -49,7 +50,34 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.backGround));
 
+
+        apiCall();
+
+        binding.editSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                resultArrayList = Tools.searchResult(countryModelArrayList, charSequence.toString());
+                Log.d(TAG, "onTextChanged: "+resultArrayList);
+                if(charSequence.length() == 0){
+                    recyclerCountry(countryModelArrayList);
+                }else{
+                    recyclerCountry(resultArrayList);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
         binding.menuOpen.setOnClickListener(view -> {
@@ -63,12 +91,8 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
             startActivity(intent, options.toBundle());
         });
 
-        if (Connectivity.isConnected(this)) {
-            new ApiCall(this, this).getAllCountry();
-        } else {
 
-        }
-
+        MyActionDialog.dialogButtons(this, binding.connectionError.again,binding.connectionError.exit );
 
 
 
@@ -122,7 +146,10 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
                             countryModelArrayList.add(countryModel);
                         }
 
-                        recyclerCountry();
+                        recyclerCountry(countryModelArrayList);
+                        binding.recyclerCountry.setVisibility(View.VISIBLE);
+                        binding.connectionError.getRoot().setVisibility(View.GONE);
+
 
 
                     } else {
@@ -136,15 +163,30 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
     }
 
-    private void recyclerCountry() {
+    private void recyclerCountry(ArrayList<CountryModel> arrayList) {
 
         LinearLayoutManager verticalLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
         binding.recyclerCountry.setLayoutManager(gridLayoutManager);
 
-        adapter = new CountrysAdapter(countryModelArrayList, this);
+        adapter = new CountrysAdapter(arrayList, this);
         binding.recyclerCountry.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+    }
+
+    private void apiCall(){
+        if (Connectivity.isConnected(this)) {
+
+            new ApiCall(this, this).getAllCountry();
+        } else {
+
+            binding.recyclerCountry.setVisibility(View.GONE);
+            binding.connectionError.getRoot().setVisibility(View.VISIBLE);
+
+
+
+
+        }
     }
 }

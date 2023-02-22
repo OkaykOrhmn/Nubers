@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="@dimen/_12cdp"
+        android:layout_margin="@dimen/_18cdp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/primaryColor"
+            android:orientation="vertical"
+            android:padding="@dimen/_24cdp"
+
+            >
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/image_connection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/about_us"
+                    android:layout_centerInParent="true"
+                    app:tint="@color/white"
+                    android:layout_margin="@dimen/_12cdp"
+                    />
+
+                        </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="مشکلی در اتصال به وجود آمده!!"
+                style="@style/fontForBigWhite"
+                android:layout_margin="@dimen/_12cdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_4cdp"
+                android:layout_marginVertical="@dimen/_12cdp"
+                >
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="خروج برنامه"
+                    android:layout_margin="@dimen/_4cdp"
+                    android:backgroundTint="@color/primaryColor"
+                    app:strokeColor="@color/secondryColor"
+                    app:strokeWidth="@dimen/_2cdp"
+                    style="@style/fontForNormalWhite"
+
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/again"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تلاش مجدد"
+                    style="@style/fontForNormalWhite"
+                    android:layout_margin="@dimen/_4cdp"
+                    android:backgroundTint="@color/secondryColor"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
