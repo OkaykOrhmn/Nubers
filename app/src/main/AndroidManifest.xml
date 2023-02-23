@@ -18,6 +18,13 @@
         android:usesCleartextTraffic="false"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.OperatorActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".activitys.NumbersActivity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.PlatformsActivity"
             android:exported="false" />
         <activity
@@ -29,24 +36,24 @@
         <activity
             android:name=".activitys.SplashActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".activitys.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Nubers.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

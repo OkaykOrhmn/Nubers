@@ -143,6 +143,50 @@ public class ApiCall {
                 });
     }
 
+    public void getNumbers(String country, String service) {
+
+        JSONObject userData = new JSONObject();
+        try {
+            userData.put("service", service);
+            userData.put("country", country);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        AndroidNetworking.get("https://api.numberland.ir/v2.php/?apikey=d07296d17874ba9c2cf76ec605db021d&method=getinfo")
+                .addQueryParameter(userData)
+                .build()
+                .getAsJSONArray(new JSONArrayRequestListener() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            Log.d(TAG, "onResponse: ");
+                            apiCallInterface.onResponse(
+                                    apiResponseJsonCreator(
+                                            ApiEndPoint.GET_NUMBERS,
+                                            true,
+                                            response
+                                    ));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d(TAG, "onError: "+ anError.getErrorBody());
+                        // JSONObject error = new JSONObject(anError.getErrorBody());
+//                            apiCallInterface.onResponse(
+//                                    apiResponseJsonCreator(
+//                                            ApiEndPoint.GET_ALL_COUNTRY,
+//                                            false,
+//                                            error.getInt("status"),
+//                                            null
+//                                    ));
+                    }
+                });
+    }
+
 
 
 

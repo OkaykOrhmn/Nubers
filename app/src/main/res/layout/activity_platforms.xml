@@ -22,13 +22,15 @@
         >
 
         <TextView
+            style="@style/fontForNormalWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="سرویس مورد نظر رو انتخاب کنید"
-            style="@style/fontForNormalWhite"
             android:layout_centerInParent="true"
-            />
+            android:text="سرویس مورد نظر رو انتخاب کنید" />
     </RelativeLayout>
+
+
+
 
 
 

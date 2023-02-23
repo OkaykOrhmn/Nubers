@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getWindow().setNavigationBarColor(getResources().getColor(R.color.backGround));
 
+        binding.a.setVisibility(View.GONE);
 
         apiCall();
 
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
                         }
 
                         recyclerCountry(countryModelArrayList);
-                        binding.recyclerCountry.setVisibility(View.VISIBLE);
+                        binding.a.setVisibility(View.VISIBLE);
                         binding.connectionError.getRoot().setVisibility(View.GONE);
 
 
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
             new ApiCall(this, this).getAllCountry();
         } else {
 
-            binding.recyclerCountry.setVisibility(View.GONE);
+            binding.a.setVisibility(View.GONE);
             binding.connectionError.getRoot().setVisibility(View.VISIBLE);
 
 

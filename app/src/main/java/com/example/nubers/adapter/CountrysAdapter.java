@@ -19,6 +19,7 @@ import com.example.nubers.activitys.PlatformsActivity;
 import com.example.nubers.databinding.CountryListBinding;
 import com.example.nubers.models.CountryModel;
 import com.example.nubers.utils.ApiEndPoint;
+import com.example.nubers.utils.Data;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -56,6 +57,10 @@ public class CountrysAdapter extends RecyclerView.Adapter<CountrysAdapter.ViewHo
 
         holder.binding.countryImage.setOnClickListener(view -> {
             Intent intent = new Intent(context, PlatformsActivity.class);
+            Data.setIdCountry(item.getId(),context);
+            Data.setImageCountry(item.getImage(),context);
+            Data.setNameCountry(item.getName(),context);
+            Data.setNameEnCountry(item.getName_en(),context);
             ActivityOptions options =
                     ActivityOptions.makeCustomAnimation(context, R.anim.slide_to_down, R.anim.slide_to_up);
             context.startActivity(intent, options.toBundle());

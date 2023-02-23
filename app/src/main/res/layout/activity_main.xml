@@ -87,13 +87,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:backgroundTint="@color/white"
                         app:boxStrokeColor="@color/primaryColor"
                         android:layout_marginVertical="@dimen/_18cdp"
                         android:layout_marginHorizontal="@dimen/_18cdp"
                         app:endIconCheckable="true"
                         app:endIconMode="clear_text"
                         app:endIconTint="@color/primaryColor"
+                        app:hintTextColor="@color/primaryColor"
+
 
 
                         >
@@ -104,12 +105,14 @@
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:hint="جستجو"
+                            android:textColorHint="@color/primaryColor"
                             android:imeOptions="actionDone"
                             android:inputType="text"
                             android:maxLines="1"
                             android:scrollHorizontally="true"
                             android:singleLine="true"
                             style="@style/fontForNormalBlack"
+                            android:textColor="?attr/colorSecondaryVariant"
 
 
                             />

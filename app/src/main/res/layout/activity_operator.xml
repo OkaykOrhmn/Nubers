@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGround"
+    tools:context=".activitys.OperatorActivity">
+
+    <RelativeLayout
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backGround"
+        android:elevation="@dimen/_12cdp"
+        android:layoutDirection="ltr"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+
+        >
+
+        <TextView
+            android:id="@+id/header_title"
+
+            style="@style/fontForNormalWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="انتخاب سرویس" />
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/nav_bar"
+        android:columnCount="2"
+
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/min_button"
+            android:layout_width="@dimen/_120cdp"
+            android:layout_height="wrap_content"
+            android:text="کمترین قیمت"
+            style="@style/fontForNormalWhite"
+            android:backgroundTint="@color/primaryColor"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/_24cdp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/any_button"
+
+            android:layout_width="@dimen/_120cdp"
+            android:layout_height="wrap_content"
+            android:text="سرور موجود"
+            style="@style/fontForNormalWhite"
+            android:backgroundTint="@color/primaryColor"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/_24cdp"
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/server_two_button"
+
+            android:layout_width="@dimen/_120cdp"
+            android:layout_height="wrap_content"
+            android:text="سرور شماره 2"
+            style="@style/fontForNormalWhite"
+            android:backgroundTint="@color/primaryColor"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/_24cdp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/server_one_button"
+
+            android:layout_width="@dimen/_120cdp"
+            android:layout_height="wrap_content"
+            android:text="سرور شماره 1"
+            style="@style/fontForNormalWhite"
+            android:backgroundTint="@color/primaryColor"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/_24cdp"
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/server_four_button"
+
+            android:layout_width="@dimen/_120cdp"
+            android:layout_height="wrap_content"
+            android:text="سرور شماره 4"
+            style="@style/fontForNormalWhite"
+            android:backgroundTint="@color/primaryColor"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/_24cdp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/server_three_button"
+
+            android:layout_width="@dimen/_120cdp"
+            android:layout_height="wrap_content"
+            android:text="سرور شماره 3"
+            style="@style/fontForNormalWhite"
+            android:backgroundTint="@color/primaryColor"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/_24cdp"
+
+            />
+
+    </GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

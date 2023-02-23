@@ -41,7 +41,9 @@ public class PlatformsActivity extends AppCompatActivity implements ApiCallInter
         super.onCreate(savedInstanceState);
         binding = ActivityPlatformsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getWindow().setNavigationBarColor(getResources().getColor(R.color.backGround));
+
+
+
 
         apiCall();
 
@@ -65,7 +67,7 @@ public class PlatformsActivity extends AppCompatActivity implements ApiCallInter
         Tools.invisibleProgressBar(binding.spinKit);
         try {
             switch (jsonObject.getString("request")) {
-                case ApiEndPoint.GET_ALL_COUNTRY:
+                case ApiEndPoint.GET_ALL_SERVICES:
 
 
                     if (jsonObject.getBoolean("isSuccess")) {

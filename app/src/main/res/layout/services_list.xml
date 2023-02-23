@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="@dimen/_12cdp"
     tools:background="@color/backGround"
+    android:id="@+id/layout"
     >
 
 
