@@ -143,12 +143,13 @@ public class ApiCall {
                 });
     }
 
-    public void getNumbers(String country, String service) {
+    public void getNumbers(String country, String service, String operator) {
 
         JSONObject userData = new JSONObject();
         try {
             userData.put("service", service);
             userData.put("country", country);
+            userData.put("operator", operator);
         } catch (JSONException e) {
             e.printStackTrace();
         }
