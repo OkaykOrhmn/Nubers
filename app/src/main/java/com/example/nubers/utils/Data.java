@@ -128,4 +128,17 @@ public class Data {
         editor.apply();
     }
 
+    public static String getServerName(Context context) {
+        String result;
+        SharedPreferences sharedPreferences = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        result = sharedPreferences.getString(Constants.SERVER_NAME, "");
+        return result;
+    }
+
+    public static void setServerName(String accessToken, Context context) {
+        SharedPreferences.Editor editor = context.getSharedPreferences("myPrefs", context.MODE_PRIVATE).edit();
+        editor.putString(Constants.SERVER_NAME, accessToken);
+        editor.apply();
+    }
+
 }

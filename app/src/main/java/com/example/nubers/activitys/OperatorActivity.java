@@ -17,6 +17,7 @@ public class OperatorActivity extends AppCompatActivity implements View.OnClickL
 
     private ActivityOperatorBinding binding;
     private String server;
+    private String serverName;
 
 
     @Override
@@ -42,30 +43,40 @@ public class OperatorActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()){
             case R.id.server_one_button:
                 server = "1";
+                serverName = "اول";
                 break;
 
             case R.id.server_two_button:
                 server = "2";
+                serverName = "دوم";
+
 
                 break;
 
             case R.id.server_three_button:
                 server = "3";
+                serverName = "سوم";
+
 
                 break;
 
             case R.id.server_four_button:
                 server = "4";
+                serverName = "چهارم";
+
 
                 break;
 
             case R.id.any_button:
                 server = "any";
+                serverName = "موجود";
 
                 break;
 
             case R.id.min_button:
                 server = "min";
+                serverName = "کمترین قیمت";
+
 
                 break;
         }
@@ -76,6 +87,7 @@ public class OperatorActivity extends AppCompatActivity implements View.OnClickL
 
     private void intentTo(String server){
         Data.setServer(server, this);
+        Data.setServerName(serverName, this);
         Intent intent = new Intent(this, NumbersActivity.class);
         ActivityOptions options =
                 ActivityOptions.makeCustomAnimation(this, R.anim.slide_to_down, R.anim.slide_to_up);

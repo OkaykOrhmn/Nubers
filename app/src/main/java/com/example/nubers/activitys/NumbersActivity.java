@@ -2,16 +2,19 @@ package com.example.nubers.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.example.nubers.R;
+import com.example.nubers.api.ApiCall;
 import com.example.nubers.api.ApiCallInterface;
 import com.example.nubers.databinding.ActivityMainBinding;
 import com.example.nubers.databinding.ActivityNumbersBinding;
 import com.example.nubers.models.CountryModel;
 import com.example.nubers.utils.ApiEndPoint;
+import com.example.nubers.utils.Connectivity;
 import com.example.nubers.utils.Data;
 import com.example.nubers.utils.SharpSvg;
 import com.example.nubers.utils.Tools;
@@ -24,6 +27,7 @@ public class NumbersActivity extends AppCompatActivity implements ApiCallInterfa
 
     private ActivityNumbersBinding binding;
     private String server;
+    private String serverName;
 
     private String idCountry;
     private String nameCountry;
@@ -36,12 +40,17 @@ public class NumbersActivity extends AppCompatActivity implements ApiCallInterfa
     private String enPlatform;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityNumbersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+
         server = Data.getServer(this);
+        serverName = Data.getServerName(this);
 
         idCountry = Data.getIdCountry(this);
         nameCountry = Data.getNameCountry(this);
@@ -59,9 +68,29 @@ public class NumbersActivity extends AppCompatActivity implements ApiCallInterfa
         binding.platformName.setText(namePlatform);
         SharpSvg.fetchSvg(this, ApiEndPoint.BASE_URL_IMAGES+ imagePlatform, binding.platformImage);
 
+        binding.serverTv.setText("سرور "+ serverName);
+
+        apiCall();
 
 
 
+
+
+
+
+
+    }
+
+    private void apiCall(){
+        if (Connectivity.isConnected(this)) {
+            new ApiCall(this, this).getNumbers(idCountry, idPlatform, server);
+        } else {
+
+            binding.allLay.setVisibility(View.INVISIBLE);
+            binding.connectionError.getRoot().setVisibility(View.VISIBLE);
+
+
+        }
     }
 
     @Override
@@ -76,7 +105,7 @@ public class NumbersActivity extends AppCompatActivity implements ApiCallInterfa
         Tools.invisibleProgressBar(binding.spinKit);
         try {
             switch (jsonObject.getString("request")) {
-                case ApiEndPoint.GET_ALL_COUNTRY:
+                case ApiEndPoint.GET_NUMBERS:
 
 
                     if (jsonObject.getBoolean("isSuccess")) {
@@ -85,26 +114,40 @@ public class NumbersActivity extends AppCompatActivity implements ApiCallInterfa
                         for (int i =0 ; i<res.length(); i++){
                             JSONObject data = res.getJSONObject(i);
 
-                            CountryModel countryModel = new CountryModel();
+                            String rep = data.getString("repeat");
+                            String repeat;
 
-                            countryModel.setId(data.getString("id"));
-                            countryModel.setName(data.getString("name"));
-                            countryModel.setName_en(data.getString("name_en"));
-                            countryModel.setAreacode(data.getString("areacode"));
-                            countryModel.setEmoji(data.getString("emoji"));
-                            countryModel.setImage(data.getString("image"));
-                            countryModel.setActive(data.getString("active"));
+                            if(rep.equals("0")){
+                                repeat = "ندارد";
+                            }else{
+                                repeat = "دارد";
+
+                            }
+
+                            int price = Integer.parseInt(data.getString("amount"));
+                            price += 20000;
+
+                            binding.timeTv.setText(data.getString("time"));
+                            binding.countTv.setText(data.getString("count"));
+                            binding.priceTv.setText(Tools.createPrice(price));
+                            binding.repeatTv.setText(repeat);
+
+
 
 //                            countryModelArrayList.add(countryModel);
                         }
 
 //                        recyclerCountry(countryModelArrayList);
 //                        binding.a.setVisibility(View.VISIBLE);
-                        binding.connectionError.getRoot().setVisibility(View.GONE);
+//                        binding.connectionError.getRoot().setVisibility(View.GONE);
+
+                        binding.allLay.setVisibility(View.VISIBLE);
 
 
 
                     } else {
+                        binding.errorTv.setVisibility(View.VISIBLE);
+
 
                     }
                     break;

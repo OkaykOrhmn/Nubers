@@ -12,4 +12,5 @@ public class Constants {
     public static String NAME_EN_P = "platformNameEn";
 
     public static String SERVER = "server";
+    public static String SERVER_NAME = "serverName";
 }

@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/drawable/shadows_back.xml" value="0.189" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_numbers.xml" value="0.2" />
+        <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_numbers.xml" value="0.28023598820059" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_operator.xml" value="0.22" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_platforms.xml" value="0.25" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_profiles.xml" value="0.25" />
@@ -14,6 +14,7 @@
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/country_list.xml" value="0.203125" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/dialog_connection_error.xml" value="0.25" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/list_row.xml" value="0.20416666666666666" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/numbers_row.xml" value="0.22" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/services_list.xml" value="0.1" />
