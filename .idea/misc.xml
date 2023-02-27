@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/drawable/shadows_back.xml" value="0.189" />
+        <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_drawers.xml" value="0.1" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_numbers.xml" value="0.28023598820059" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_operator.xml" value="0.22" />
+        <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_pay.xml" value="0.1" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_platforms.xml" value="0.25" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/activity_profiles.xml" value="0.25" />
         <entry key="..\:/Kia/Projects/Nubers/app/src/main/res/layout/app_bar_main.xml" value="0.1" />

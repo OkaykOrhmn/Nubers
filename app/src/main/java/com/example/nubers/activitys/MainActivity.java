@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -20,8 +21,12 @@ import com.example.nubers.models.CountryModel;
 import com.example.nubers.utils.ApiEndPoint;
 import com.example.nubers.utils.Connectivity;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +34,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.nubers.databinding.ActivityMainBinding;
 import com.example.nubers.utils.MyActionDialog;
 import com.example.nubers.utils.Tools;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,11 +45,13 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
     private static final String TAG = "KIA----MainActivity----> ";
     private ActivityMainBinding binding;
+    private NavController navController;
     private boolean isExit = false;
     private ArrayList<CountryModel> countryModelArrayList = new ArrayList<>();
-    private ArrayList<CountryModel> resultArrayList ;
+    private ArrayList<CountryModel> resultArrayList;
     private CountrysAdapter adapter;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +59,39 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         binding.a.setVisibility(View.GONE);
 
+        NavigationView navView = binding.navView;
+        navView.setNavigationItemSelectedListener(item -> {
+            Intent intent = new Intent(this, DrawersActivity.class);
+            ActivityOptions options =
+                    ActivityOptions.makeCustomAnimation(MainActivity.this, R.anim.slide_from_right, R.anim.slide_from_left);
+            switch (item.getItemId()) {
+                case R.id.nav_home:
+                    intent.putExtra("page", 0);
+                    break;
+
+                case R.id.nav_gallery:
+                    intent.putExtra("page", 1);
+
+                    break;
+
+                case R.id.nav_slideshow:
+                    intent.putExtra("page", 2);
+
+
+                    break;
+
+                case R.id.nav_home2:
+                    intent.putExtra("page", 3);
+
+
+                    break;
+            }
+            startActivity(intent, options.toBundle());
+            return false;
+        });
         apiCall();
 
         binding.editSearch.addTextChangedListener(new TextWatcher() {
@@ -65,10 +104,10 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 resultArrayList = Tools.searchResult(countryModelArrayList, charSequence.toString());
-                Log.d(TAG, "onTextChanged: "+resultArrayList);
-                if(charSequence.length() == 0){
+                Log.d(TAG, "onTextChanged: " + resultArrayList);
+                if (charSequence.length() == 0) {
                     recyclerCountry(countryModelArrayList);
-                }else{
+                } else {
                     recyclerCountry(resultArrayList);
                 }
             }
@@ -92,15 +131,14 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
         });
 
 
-        MyActionDialog.dialogButtons(this, binding.connectionError.again,binding.connectionError.exit );
-
+        MyActionDialog.dialogButtons(this, binding.connectionError.again, binding.connectionError.exit);
 
 
     }
 
     @Override
     public void onBackPressed() {
-        if(!isExit) {
+        if (!isExit) {
             if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 binding.drawerLayout.closeDrawer(GravityCompat.START);
             } else {
@@ -112,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
                 };
                 h.postDelayed(r, 2000);
             }
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
@@ -127,10 +165,10 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
 
                     if (jsonObject.getBoolean("isSuccess")) {
-                        Log.d(TAG, "onResponse: "+jsonObject.getJSONArray("result"));
+                        Log.d(TAG, "onResponse: " + jsonObject.getJSONArray("result"));
                         JSONArray res = jsonObject.getJSONArray("result");
 
-                        for (int i =0 ; i<res.length(); i++){
+                        for (int i = 0; i < res.length(); i++) {
                             JSONObject data = res.getJSONObject(i);
 
                             CountryModel countryModel = new CountryModel();
@@ -149,7 +187,6 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
                         recyclerCountry(countryModelArrayList);
                         binding.a.setVisibility(View.VISIBLE);
                         binding.connectionError.getRoot().setVisibility(View.GONE);
-
 
 
                     } else {
@@ -175,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
     }
 
-    private void apiCall(){
+    private void apiCall() {
         if (Connectivity.isConnected(this)) {
 
             new ApiCall(this, this).getAllCountry();
@@ -183,8 +220,6 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
             binding.a.setVisibility(View.GONE);
             binding.connectionError.getRoot().setVisibility(View.VISIBLE);
-
-
 
 
         }
