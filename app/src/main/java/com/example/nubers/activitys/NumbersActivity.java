@@ -51,7 +51,6 @@ public class NumbersActivity extends AppCompatActivity implements ApiCallInterfa
 
 
         server = Data.getServer(this);
-        serverName = Data.getServerName(this);
 
         idCountry = Data.getIdCountry(this);
         nameCountry = Data.getNameCountry(this);
@@ -69,7 +68,8 @@ public class NumbersActivity extends AppCompatActivity implements ApiCallInterfa
         binding.platformName.setText(namePlatform);
         SharpSvg.fetchSvg(this, ApiEndPoint.BASE_URL_IMAGES+ imagePlatform, binding.platformImage);
 
-        binding.serverTv.setText("سرور "+ serverName);
+        binding.serverTv.setText("سرور شماره "+ server);
+
 
         apiCall();
 

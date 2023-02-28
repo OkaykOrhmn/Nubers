@@ -71,5 +71,7 @@ dependencies {
 
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
 
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
+
 
 }

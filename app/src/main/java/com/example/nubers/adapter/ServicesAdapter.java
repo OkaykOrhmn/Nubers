@@ -15,6 +15,7 @@ import com.example.nubers.R;
 import com.example.nubers.activitys.NumbersActivity;
 import com.example.nubers.activitys.OperatorActivity;
 import com.example.nubers.activitys.PlatformsActivity;
+import com.example.nubers.activitys.ServersActivity;
 import com.example.nubers.databinding.ServicesListBinding;
 import com.example.nubers.databinding.ServicesListBinding;
 import com.example.nubers.models.ServicesModel;
@@ -53,7 +54,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         SharpSvg.fetchSvg(context, ApiEndPoint.BASE_URL_IMAGES+ item.getImage(), holder.binding.iconService);
         holder.binding.titleService.setText(item.getName());
         holder.binding.layout.setOnClickListener(view -> {
-            Intent intent = new Intent(context, OperatorActivity.class);
+            Intent intent = new Intent(context, ServersActivity.class);
             Data.setIdPlatform(item.getId(),context);
             Data.setImagePlatform(item.getImage(),context);
             Data.setNamePlatform(item.getName(),context);

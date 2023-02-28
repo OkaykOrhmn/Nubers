@@ -248,7 +248,7 @@
                     app:strokeColor="@color/primaryColor"
                     app:strokeWidth="@dimen/_1cdp"
                     app:cornerRadius="@dimen/_12cdp"
-                    android:text="30,000 تومان"
+                    android:text="50,000 تومان"
                     style="@style/fontForNormalPrimary"
                     />
 
@@ -273,7 +273,7 @@
                     app:strokeColor="@color/primaryColor"
                     app:strokeWidth="@dimen/_1cdp"
                     app:cornerRadius="@dimen/_12cdp"
-                    android:text="50,000 تومان"
+                    android:text="80,000 تومان"
                     style="@style/fontForNormalPrimary"
                     />
 
@@ -288,7 +288,7 @@
                     app:strokeColor="@color/primaryColor"
                     app:strokeWidth="@dimen/_1cdp"
                     app:cornerRadius="@dimen/_12cdp"
-                    android:text="80,000 تومان"
+                    android:text="120,000 تومان"
                     style="@style/fontForNormalPrimary"
                     />
 
@@ -313,7 +313,7 @@
                     app:strokeColor="@color/primaryColor"
                     app:strokeWidth="@dimen/_1cdp"
                     app:cornerRadius="@dimen/_12cdp"
-                    android:text="100,000 تومان"
+                    android:text="240,000 تومان"
                     style="@style/fontForNormalPrimary"
                     />
 
@@ -328,7 +328,7 @@
                     app:strokeColor="@color/primaryColor"
                     app:strokeWidth="@dimen/_1cdp"
                     app:cornerRadius="@dimen/_12cdp"
-                    android:text="120,000 تومان"
+                    android:text="300,000 تومان"
                     style="@style/fontForNormalPrimary"
                     />
 

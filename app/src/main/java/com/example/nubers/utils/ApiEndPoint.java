@@ -7,5 +7,6 @@ public class ApiEndPoint {
     public static final String GET_ALL_COUNTRY = "0";
     public static final String GET_ALL_SERVICES = "1";
     public static final String GET_NUMBERS = "2";
+    public static final String GET_ALL_NUMBERS = "3";
 
 }

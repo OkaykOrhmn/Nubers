@@ -7,13 +7,63 @@
 
     >
 
+    <RelativeLayout
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backGround"
+        android:elevation="@dimen/_12cdp"
+        android:layoutDirection="ltr"
+
+        >
+
+        <ImageView
+            android:id="@+id/profile_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_12cdp"
+            android:layout_marginLeft="@dimen/_12cdp"
+            android:layout_marginTop="@dimen/_12cdp"
+
+            android:layout_marginEnd="@dimen/_12cdp"
+            android:layout_marginBottom="@dimen/_12cdp"
+            android:src="@drawable/profile"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/simcard_one"
+            app:tint="@color/primaryColor"
+
+            />
+
+        <ImageView
+            android:id="@+id/menu_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/_12cdp"
+            android:layout_marginRight="@dimen/_12cdp"
+            android:src="@drawable/list"
+            app:tint="@color/white"
+
+            />
+
+    </RelativeLayout>
+
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         android:layoutDirection="rtl"
-
+        android:layout_below="@id/profile"
         tools:openDrawer="start">
 
         <LinearLayout
@@ -22,97 +72,77 @@
             android:background="@color/backGround"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/profile"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/backGround"
-                android:elevation="@dimen/_12cdp"
-                android:layoutDirection="ltr"
-
-                >
-
-                <ImageView
-                    android:id="@+id/profile_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_12cdp"
-                    android:layout_marginLeft="@dimen/_12cdp"
-                    android:layout_marginTop="@dimen/_12cdp"
-
-                    android:layout_marginEnd="@dimen/_12cdp"
-                    android:layout_marginBottom="@dimen/_12cdp"
-                    android:src="@drawable/profile"
-                    app:tint="@color/white" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/simcard_one"
-                    app:tint="@color/primaryColor"
-
-                    />
-
-                <ImageView
-                    android:id="@+id/menu_open"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/_12cdp"
-                    android:layout_marginRight="@dimen/_12cdp"
-                    android:src="@drawable/list"
-                    app:tint="@color/white"
-
-                    />
-
-            </RelativeLayout>
 
             <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/a"
-                >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
+
+
+                    <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="@dimen/_12cdp"
+                        android:layout_margin="@dimen/_18cdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <com.smarteist.autoimageslider.SliderView
+                            android:id="@+id/imageSlider"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_180cdp"
+                            app:sliderAnimationDuration="600"
+                            app:sliderAutoCycleDirection="back_and_forth"
+                            app:sliderAutoCycleEnabled="true"
+                            app:sliderIndicatorAnimationDuration="600"
+                            app:sliderIndicatorGravity="center_horizontal|bottom"
+                            app:sliderIndicatorMargin="15dp"
+                            app:sliderIndicatorOrientation="horizontal"
+                            app:sliderIndicatorPadding="3dp"
+                            app:sliderIndicatorRadius="2dp"
+                            app:sliderIndicatorSelectedColor="#5A5A5A"
+                            app:sliderIndicatorUnselectedColor="#FFF"
+                            app:sliderScrollTimeInSec="1"
+                            app:sliderStartAutoCycle="true"
+                            android:layoutDirection="rtl"
+                            />
+
+                    </androidx.cardview.widget.CardView>
+
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        app:boxStrokeColor="@color/primaryColor"
-                        android:layout_marginVertical="@dimen/_18cdp"
                         android:layout_marginHorizontal="@dimen/_18cdp"
+                        android:layout_marginVertical="@dimen/_18cdp"
+                        app:boxStrokeColor="@color/primaryColor"
                         app:endIconCheckable="true"
                         app:endIconMode="clear_text"
                         app:endIconTint="@color/primaryColor"
                         app:hintTextColor="@color/primaryColor"
 
 
-
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edit_search"
+                            style="@style/fontForNormalBlack"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:hint="جستجو"
-                            android:textColorHint="@color/primaryColor"
                             android:imeOptions="actionDone"
                             android:inputType="text"
                             android:maxLines="1"
                             android:scrollHorizontally="true"
                             android:singleLine="true"
-                            style="@style/fontForNormalBlack"
                             android:textColor="?attr/colorSecondaryVariant"
+                            android:textColorHint="@color/primaryColor"
 
 
                             />
@@ -130,7 +160,6 @@
             </androidx.core.widget.NestedScrollView>
 
 
-
         </LinearLayout>
 
 
@@ -141,13 +170,16 @@
             android:layout_gravity="start"
             android:background="@drawable/drawer_back"
             android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_main"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
             app:menu="@menu/activity_main_drawer"
 
+
             />
+<!--        app:headerLayout="@layout/country_list"-->
+
     </androidx.drawerlayout.widget.DrawerLayout>
+
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit"
@@ -164,8 +196,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
 
 </RelativeLayout>

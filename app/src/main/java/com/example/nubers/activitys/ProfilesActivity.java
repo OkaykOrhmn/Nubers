@@ -67,7 +67,7 @@ public class ProfilesActivity extends AppCompatActivity implements View.OnClickL
     private void plusPrice() {
         String price = binding.priceToPay.getText().toString();
         int noSymbol = Tools.removePrice(price);
-        if (noSymbol<120000){
+        if (noSymbol<300000){
             noSymbol+=10000;
 
         }

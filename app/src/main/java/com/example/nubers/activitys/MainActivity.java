@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.nubers.R;
 import com.example.nubers.adapter.CountrysAdapter;
+import com.example.nubers.adapter.SliderAdapterExample;
+import com.example.nubers.adapter.SliderItem;
 import com.example.nubers.api.ApiCall;
 import com.example.nubers.api.ApiCallInterface;
 import com.example.nubers.models.CountryModel;
@@ -35,6 +38,9 @@ import com.example.nubers.databinding.ActivityMainBinding;
 import com.example.nubers.utils.MyActionDialog;
 import com.example.nubers.utils.Tools;
 import com.google.android.material.navigation.NavigationView;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
     private NavController navController;
     private boolean isExit = false;
     private ArrayList<CountryModel> countryModelArrayList = new ArrayList<>();
+    private ArrayList<SliderItem> sliderItemArrayList = new ArrayList<>();
     private ArrayList<CountryModel> resultArrayList;
     private CountrysAdapter adapter;
 
@@ -59,6 +66,35 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        SliderItem one = new SliderItem();
+        SliderItem two = new SliderItem();
+        SliderItem three = new SliderItem();
+        SliderItem four = new SliderItem();
+
+        one.setImageUrl(R.drawable.one);
+        two.setImageUrl(R.drawable.two);
+        three.setImageUrl(R.drawable.three);
+        four.setImageUrl(R.drawable.five);
+
+        sliderItemArrayList.add(one);
+        sliderItemArrayList.add(two);
+        sliderItemArrayList.add(three);
+        sliderItemArrayList.add(four);
+
+        SliderView sliderView = findViewById(R.id.imageSlider);
+
+        SliderAdapterExample adapter = new SliderAdapterExample(sliderItemArrayList,this);
+
+        sliderView.setSliderAdapter(adapter);
+
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        sliderView.setIndicatorSelectedColor(Color.WHITE);
+        sliderView.setIndicatorUnselectedColor(Color.GRAY);
+        sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderView.startAutoCycle();
 
         binding.a.setVisibility(View.GONE);
 
