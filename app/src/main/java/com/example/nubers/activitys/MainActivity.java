@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
         SliderItem three = new SliderItem();
         SliderItem four = new SliderItem();
 
-        one.setImageUrl(R.drawable.one);
-        two.setImageUrl(R.drawable.two);
-        three.setImageUrl(R.drawable.three);
-        four.setImageUrl(R.drawable.five);
+        one.setImageUrl(R.drawable.baner);
+        two.setImageUrl(R.drawable.baner);
+        three.setImageUrl(R.drawable.baner);
+        four.setImageUrl(R.drawable.baner);
 
         sliderItemArrayList.add(one);
         sliderItemArrayList.add(two);
