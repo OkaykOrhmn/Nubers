@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
         SliderItem four = new SliderItem();
 
         one.setImageUrl(R.drawable.baner);
-        two.setImageUrl(R.drawable.baner);
+        two.setImageUrl(R.drawable.flgs);
         three.setImageUrl(R.drawable.baner);
-        four.setImageUrl(R.drawable.baner);
+        four.setImageUrl(R.drawable.insta);
 
         sliderItemArrayList.add(one);
         sliderItemArrayList.add(two);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ApiCallInterface 
 
         sliderView.setSliderAdapter(adapter);
 
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.setIndicatorSelectedColor(Color.WHITE);

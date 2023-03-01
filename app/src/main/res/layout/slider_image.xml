@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_auto_image_slider"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY" />
+        android:orientation="vertical">
 
 
-    <ImageView
-        android:id="@+id/iv_gif_container"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="bottom|start"
-        android:layout_margin="50dp" />
 
-
-    <FrameLayout
-        android:id="@+id/fl_shadow_container"
-        android:background="#80212F45"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <TextView
-            android:id="@+id/tv_auto_image_slider"
+        <FrameLayout
+            android:id="@+id/fl_shadow_container"
+            android:background="#CC212F45"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:padding="6dp"
-            android:textSize="18sp" />
+            android:elevation="@dimen/_18cdp"
+            android:layout_gravity="bottom|center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_auto_image_slider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_4cdp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:textSize="18sp"
+                />
+
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_18cdp"
+            android:layout_marginVertical="@dimen/_18cdp"
+            app:cardCornerRadius="@dimen/_12cdp"
+            >
+            <ImageView
+                android:id="@+id/iv_auto_image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+
+        </androidx.cardview.widget.CardView>
 
     </FrameLayout>
 
-</FrameLayout>
+</RelativeLayout>

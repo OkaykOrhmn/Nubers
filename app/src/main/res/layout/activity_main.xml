@@ -84,12 +84,7 @@
                     android:orientation="vertical">
 
 
-                    <androidx.cardview.widget.CardView
-                        app:cardCornerRadius="@dimen/_12cdp"
-                        android:layout_margin="@dimen/_18cdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
+
 
                         <com.smarteist.autoimageslider.SliderView
                             android:id="@+id/imageSlider"
@@ -111,7 +106,6 @@
                             android:layoutDirection="rtl"
                             />
 
-                    </androidx.cardview.widget.CardView>
 
 
                     <com.google.android.material.textfield.TextInputLayout
